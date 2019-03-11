@@ -1,4 +1,4 @@
-import Reactfrom 'react';
+import React from 'react';
 
 const Contact = () => {
     return (
