@@ -1,25 +1,30 @@
 import React, {Component} from 'react';
-import axios from 'axios';
 import {Link} from 'react-router-dom';
+// import Realdolmen from '../img/realdolmen.svg';
+import { connect } from 'react-redux';
+// import axios from "axios";
 
 class Home extends Component {
-    state = {
-        comment: []
-    }
 
-    componentDidMount() {
-        axios.get('https://jsonplaceholder.typicode.com/comments')
-            .then(res => this.setState({
-                comment: res.data.slice(0, 10)
-            }));
-    }
+    // state = {
+    //     comment: []
+    // }
+    //
+    // componentDidMount() {
+    //     axios.get('https://jsonplaceholder.typicode.com/comments')
+    //         .then(res => this.setState({
+    //             comment: res.data.slice(0, 10)
+    //         }));
+    // }
 
     render() {
-        const {comment} = this.state;
-        const quotesList = comment.length ? (
-            comment.map(comment => {
+        // const {comments} = this.state;
+        const {comments} = this.props;
+        const quotesList = comments.length ? (
+            comments.map(comment => {
                 return (
                     <div className="post card" key={comment.id}>
+                        {/*<img className="rd-logo" src={Realdolmen} alt="Realdolmen logo"/>*/}
                         <div className="card-content">
                             <Link to={'/comments/' + comment.id}>
                                 <span className="card-title">
@@ -42,6 +47,12 @@ class Home extends Component {
             </div>
         );
     }
-};
+}
 
-export default Home;
+const mapStateToProps = (state) => {
+    return {
+        comments: state.comments
+    };
+}
+
+export default connect(mapStateToProps)(Home);
