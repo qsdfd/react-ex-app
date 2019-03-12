@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import Navbar from "./components/Navbar";
+import Navbar from "./components/navbar/Navbar";
 import {BrowserRouter, Route} from 'react-router-dom';
 import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
 import Quotes from './components/quotes/Quotes';
+import Comment from './components/comments/Comment'
 
 class App extends Component {
     render() {
@@ -16,6 +17,7 @@ class App extends Component {
                     <Route path="/quotes" component={Quotes}/>
                     <Route path="/about" component={About}/>
                     <Route path="/contact" component={Contact}/>
+                    <Route path="/comments/:comment_id" component={Comment}/>
                 </div>
             </BrowserRouter>
         );

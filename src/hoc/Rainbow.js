@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const Rainbow = (WrappedComponent) => {
     const colors = ['green', 'orange', 'red', 'yellow', 'blue', 'pink'];
